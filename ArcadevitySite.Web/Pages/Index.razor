@@ -1,0 +1,99 @@
+﻿@page "/"
+
+<div class="d-flex flex-row justify-content-center images-bg">
+    <div class="img-wrapper">
+        <img src="/css/images/csgo.jpg" style="object-position: 65% center;">
+        <div class="text-overimage-top">
+            #ARCDCSGO
+        </div>
+    </div>
+    <div class="img-wrapper">
+        <img src="/css/images/rocket.jpg">
+        <div class="text-overimage-top">
+            #ARCDRL
+        </div>
+    </div>
+    <div class="img-wrapper">
+        <img src="/css/images/fifa22.jpg">
+        <div class="text-overimage-top">
+            #ARCDFIFA
+        </div>
+    </div>
+</div>
+<div class="history-container">
+    <div class="history-panel">
+        <div class="history">
+            <div class="title">
+                HISTORY
+            </div>
+            <div class="history-content">
+                Arcadevity is an amateur esports team founded in 2015 by a group of friends from a small town. &#9733 <br /><br />
+                We act in the words of Rudyard Kipling, "If you can keep a cool head when everyone is losing their heads, the world is yours".<br /><br />
+                It is true that the world does not belong to us and we are not professional players, but at least we have fun with what we do and from nerves (already) we do not throw pads at the wall.<br /><br />
+                &#9733 We wanted to be an amateur football club, but we like french fries and pizza too much.
+            </div>
+        </div>
+        <div class="arc-img">
+            <img src="/css/images/herbArc.png" />
+        </div>
+    </div>
+</div>
+<div class="teams-container">
+    <div class="teams-panel">
+        <div class="switcher">
+            <div class="switch-arrow" @onclick="()=>ChangeTeam(false)">
+                &#11164
+            </div>
+            <div class="title">
+                DRUŻYNY
+            </div>
+            <div class="switch-arrow" @onclick="()=>ChangeTeam(true)">
+                &#11166
+            </div>
+        </div>
+        <div class="switcher">
+            <div class="switch-arrow" @onclick="()=>ChangePlayer(false)">
+                &#11164
+            </div>
+            <div class="title">
+                @actualTeam
+            </div>
+            <div class="switch-arrow" @onclick="()=>ChangePlayer(true)">
+                &#11166
+            </div>
+        </div>
+    </div>
+</div>
+
+@code{
+    private string actualTeam = "CSGO";
+    private int actualTeamIndex = 0;
+    private List<string> teams = new List<string> { "CSGO", "Rocket League", "Fifa 22" };
+
+    private void ChangeTeam(bool next)
+    {
+        if (next)
+        {
+            actualTeamIndex++;
+            if (actualTeamIndex >= teams.Count)
+            {
+                actualTeamIndex = 0;
+            }
+        }
+        else
+        {
+            actualTeamIndex--;
+            if (actualTeamIndex < 0)
+            {
+                actualTeamIndex = teams.Count - 1;
+            }
+        }
+
+        actualTeam = teams[actualTeamIndex];
+    }
+
+    private void ChangePlayer(bool next)
+    {
+
+    }
+}

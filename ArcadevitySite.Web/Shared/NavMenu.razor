@@ -1,0 +1,35 @@
+﻿<div class="container-fluid">
+    <nav class="mx-25 navbar navbar-expand-lg bg-white pl-5 pr-5">
+        <a class="navbar-brand w-10" href="#">
+            <img class="img-fluid" src="/css/images/herbArc.png"/>
+        </a>
+        <ul class="navbar-nav w-100 justify-content-around px-5 font-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/Shop">E-Shop</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Club history</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Members</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Score</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Recrutation</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}
